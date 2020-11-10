@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Máquina de Escrever</title>
+  </head>
+  <body>
+    <style>
+      body {
+        background: #0e1013;
+      }
+
+      h1 {
+        max-width: 480px;
+        text-align: center;
+        margin: 60px auto;
+        font-family: "Courier New", Courier, monospace;
+        color: #fff;
+      }
+      h1:after {
+        content: "|";
+        margin-left: 5px;
+        opacity: 1;
+        animation: pisca 1s infinite;
+      }
+
+      @keyframes pisca {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+      }
+
+      p {
+        color: white;
+      }
+    </style>
+
+    <h1>Máquina de escrever</h1>
+
+    <p>
+      O Sport Club do Recife (conhecido como Sport e Sport Recife, de monogramo
+      SCR) é um clube brasileiro de desportos, situado no bairro da Ilha do
+      Retiro, cidade do Recife, estado de Pernambuco. Foi fundado em 13 de maio
+      de 1905, por Guilherme de Aquino Fonseca, um pernambucano que viveu por
+      muitos anos na Inglaterra, onde estudou na Universidade de Cambridge e
+      regressou a Pernambuco trazendo consigo o apreço pelo novo esporte daquele
+      país: o futebol.
+    </p>
+
+    <script>
+      function escrever(elemento) {
+        const textoArray = elemento.innerHTML.split("");
+        elemento.innerHTML = "";
+        textoArray.forEach((letra, i) => {
+          setTimeout(() => (elemento.innerHTML += letra), 75 * i);
+        });
+      }
+
+      const titulo = document.querySelector("h1");
+      escrever(titulo);
+
+      escrever(document.querySelector("p"));
+    </script>
+  </body>
+</html>
